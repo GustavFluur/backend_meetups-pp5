@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Item
+from camp.models import Item
 
 
 class ItemSerializer(serializers.ModelSerializer):
