@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-# api hasn't been created in the terminal
+# api hasn't been created in the terminal & test api =>
     'api',
 
     'rest_framework',
