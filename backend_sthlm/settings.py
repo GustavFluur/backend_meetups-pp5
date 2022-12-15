@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-# api hasn't been created in the terminal & test api =>
-    'api',
+# api hasn't been created in the terminal
+    'test_api',
 
     'rest_framework',
 # camp has been created in the terminal
