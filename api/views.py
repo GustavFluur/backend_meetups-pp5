@@ -8,6 +8,9 @@ from .serializers import TaskSerializer
 from .models import Task
 # Create your views here.
 
+# import TaskSerializer => MeetSerializer
+# import Task => MeetUp
+
 @api_view(['GET'])
 def apiOverview(request):
 	api_urls = {
@@ -20,22 +23,29 @@ def apiOverview(request):
 
 	return Response(api_urls)
 
+# Task = MeetUp
+
 @api_view(['GET'])
 def taskList(request):
 	tasks = Task.objects.all().order_by('-id')
+	# meets = MeetUp.objects.all().order_by('-id')
 	serializer = TaskSerializer(tasks, many=True)
+	# serializer = MeetSerializer(meets, many=True)
 	return Response(serializer.data)
 
 @api_view(['GET'])
 def taskDetail(request, pk):
 	tasks = Task.objects.get(id=pk)
+	# meets = MeetUp.objects.get(id=pk)
 	serializer = TaskSerializer(tasks, many=False)
+	# serializer = MeetSerializer(meets, many=True)
 	return Response(serializer.data)
 
 
 @api_view(['POST'])
 def taskCreate(request):
 	serializer = TaskSerializer(data=request.data)
+	# serializer = MeetSerializer(data=request.data)
 
 	if serializer.is_valid():
 		serializer.save()
@@ -45,6 +55,7 @@ def taskCreate(request):
 @api_view(['POST'])
 def taskUpdate(request, pk):
 	task = Task.objects.get(id=pk)
+	# meet = MeetUp.object.get(id=pk)
 	serializer = TaskSerializer(instance=task, data=request.data)
 
 	if serializer.is_valid():
@@ -56,6 +67,10 @@ def taskUpdate(request, pk):
 @api_view(['DELETE'])
 def taskDelete(request, pk):
 	task = Task.objects.get(id=pk)
+	# meet = MeetUp.object.get(id=pk)
 	task.delete()
+	# meet.delete()
 
 	return Response('Item succsesfully delete!')
+
+	# return Response('Activity has successfully been deleted!')
