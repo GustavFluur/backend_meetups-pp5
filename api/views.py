@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 from django.http import JsonResponse
 
 from rest_framework.decorators import api_view
@@ -10,6 +11,23 @@ from .models import Task
 
 # import TaskSerializer => MeetSerializer
 # import Task => MeetUp
+
+# CRUD Operation using Django REST API and React JS 2022
+# PART 4
+
+#from rest_framework import viewsets
+# from api.serializers import PatientSerializer
+
+
+#class PatientViewSet(viewsets.ModelViewSet):
+    #"""
+    #A viewset for viewing and editing user instances.
+    #"""
+    #serializer_class = UserSerializer
+    #queryset = User.objects.all()
+
+# class PatientViewSet(viewsets.ModelViewSet)
+	# queryset = Patient.objects.all()
 
 @api_view(['GET'])
 def apiOverview(request):
